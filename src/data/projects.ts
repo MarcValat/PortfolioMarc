@@ -15,7 +15,7 @@ export const PROJECTS: Project[] = [
       'MinIO',
       'Docker',
     ],
-    url: null, // À renseigner : URL instance de test
+    url: 'https://colint.marcallie.duckdns.org/', // À renseigner : URL instance de test
     liveDemo: true,
     status: 'En développement (18/40 étapes)',
   },

@@ -3,11 +3,11 @@ import type { Formation } from '@/types'
 export const FORMATIONS: Formation[] = [
   {
     school: 'ESME Sudria',
-    degree: 'Diplôme d\'Ingénieur',
+    degree: "Diplôme d'Ingénieur",
     field: 'Majeure Intelligence Artificielle',
     period: '2019 – 2025',
     description:
-      'Formation d\'ingénieur généraliste avec spécialisation en IA : Machine Learning, Deep Learning, NLP, robotique, traitement du signal. Projets transversaux en équipe, hackathons et stages en entreprise.',
+      "Formation d'ingénieur généraliste avec spécialisation en IA : Machine Learning, Deep Learning, NLP, traitement du signal, programmation, mathématiques. Projets transversaux en équipe et stages en entreprise.",
   },
   {
     school: 'Lycée Notre Dame Providence',
