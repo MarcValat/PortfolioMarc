@@ -1,0 +1,37 @@
+export interface Project {
+  title: string
+  description: string
+  tags: string[]
+  url: string | null
+  liveDemo?: boolean
+  status?: string
+}
+
+export interface Experience {
+  company: string
+  role: string
+  location: string
+  period: string
+  duration: string
+  description: string[]
+  tags: string[]
+}
+
+export interface SkillItem {
+  name: string
+  level?: number // 0–100, optional (used for bars)
+}
+
+export interface SkillCategory {
+  category: string
+  icon?: string
+  skills: SkillItem[]
+}
+
+export interface Formation {
+  school: string
+  degree: string
+  field: string
+  period: string
+  description?: string
+}
