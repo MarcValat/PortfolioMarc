@@ -12,7 +12,7 @@ export function Contact() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start max-w-5xl">
         <div>
-          <p className="font-body text-base text-text-primary/60 leading-relaxed mb-8">
+          <p className="font-body text-base text-text-primary/85 leading-relaxed mb-8">
             Vous souhaitez me contacter pour une opportunité professionnelle, une question
             ou une collaboration ? Je lis tous les messages et réponds rapidement.
           </p>

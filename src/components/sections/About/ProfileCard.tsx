@@ -58,7 +58,7 @@ export function ProfileCard({ photoSrc }: ProfileCardProps) {
         </div>
 
         <h3 className="font-heading font-bold text-xl text-text-primary mb-1">Marc Valat</h3>
-        <p className="text-text-primary/50 text-sm font-mono mb-4">
+        <p className="text-text-primary/75 text-sm font-mono mb-4">
           Ingénieur IA · Dev · DevOps
         </p>
 
@@ -68,7 +68,7 @@ export function ProfileCard({ photoSrc }: ProfileCardProps) {
           <GoldBadge size="sm">DevOps</GoldBadge>
         </div>
 
-        <div className="flex flex-col gap-2 text-sm text-text-primary/50">
+        <div className="flex flex-col gap-2 text-sm text-text-primary/75">
           <div className="flex items-center gap-2 justify-center">
             <MapPin size={13} className="text-gold/60" />
             <span>Deuil-la-Barre, 95170</span>

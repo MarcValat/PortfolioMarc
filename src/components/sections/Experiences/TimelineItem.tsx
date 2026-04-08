@@ -35,22 +35,22 @@ export function TimelineItem({ experience, index, isLeft }: TimelineItemProps) {
               <p className="text-gold/80 text-sm font-medium mt-0.5">{experience.role}</p>
             </div>
             <div className="text-right">
-              <div className="flex items-center gap-1 text-text-primary/40 text-xs justify-end">
+              <div className="flex items-center gap-1 text-text-primary/90 text-xs justify-end">
                 <Calendar size={11} />
                 <span>{experience.period}</span>
               </div>
-              <span className="text-xs font-mono text-text-primary/30">{experience.duration}</span>
+              <span className="text-xs font-mono text-text-primary/85">{experience.duration}</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-1 text-text-primary/30 text-xs mb-4">
+          <div className="flex items-center gap-1 text-text-primary/85 text-xs mb-4">
             <MapPin size={11} />
             <span>{experience.location}</span>
           </div>
 
           <ul className="space-y-1.5 mb-4">
             {experience.description.map((point, i) => (
-              <li key={i} className="flex gap-2 text-sm text-text-primary/60 leading-snug">
+              <li key={i} className="flex gap-2 text-sm text-text-primary/85 leading-snug">
                 <span className="text-gold/50 mt-1 shrink-0">›</span>
                 <span>{point}</span>
               </li>

@@ -13,7 +13,7 @@ export function AboutText() {
       {BIO_PARAGRAPHS.map((paragraph, i) => (
         <motion.p
           key={i}
-          className="font-body text-base md:text-lg text-text-primary/70 leading-relaxed"
+          className="font-body text-base md:text-lg text-text-primary/90 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}

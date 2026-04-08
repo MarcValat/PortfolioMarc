@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 export function HeroTagline() {
   return (
     <motion.p
-      className="font-body text-base md:text-lg text-text-primary/50 max-w-xl leading-relaxed mb-10"
+      className="font-body text-base md:text-lg text-text-primary/75 max-w-xl leading-relaxed mb-10"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: 'easeOut', delay: 0.65 }}
