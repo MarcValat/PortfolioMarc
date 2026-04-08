@@ -1,0 +1,13 @@
+services:
+  portfolio:
+    build: .
+    container_name: portfoliomarc
+    restart: unless-stopped
+    ports:
+      - "3002:80"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

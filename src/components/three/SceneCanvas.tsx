@@ -1,13 +1,10 @@
-import { createContext, useRef } from 'react'
+import { useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { AdaptiveDpr, AdaptiveEvents } from '@react-three/drei'
 import { useLenis } from '@/hooks/useLenis'
 import { StarField } from './StarField'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
-
-export const ScrollContext = createContext<{ scrollRef: React.RefObject<number> }>({
-  scrollRef: { current: 0 },
-})
+import { ScrollContext } from './ScrollContext'
 
 function Scene({ scrollRef }: { scrollRef: React.RefObject<number> }) {
   return (
