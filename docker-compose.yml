@@ -6,8 +6,8 @@ services:
     ports:
       - "3002:80"
     networks:
-      - proxy
+      - proxy-network
 
 networks:
-  proxy:
+  proxy-network:
     external: true
