@@ -69,7 +69,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
 
           {/* Description */}
-          <p className="font-body text-sm text-text-primary/60 leading-relaxed flex-1">
+          <p className="font-body text-sm text-text-primary/85 leading-relaxed flex-1">
             {project.description}
           </p>
 

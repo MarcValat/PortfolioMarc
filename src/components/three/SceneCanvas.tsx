@@ -3,7 +3,6 @@ import { Canvas } from '@react-three/fiber'
 import { AdaptiveDpr, AdaptiveEvents } from '@react-three/drei'
 import { useLenis } from '@/hooks/useLenis'
 import { StarField } from './StarField'
-import { PostProcessing } from './PostProcessing'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 
 export const ScrollContext = createContext<{ scrollRef: React.RefObject<number> }>({
@@ -14,7 +13,6 @@ function Scene({ scrollRef }: { scrollRef: React.RefObject<number> }) {
   return (
     <ScrollContext.Provider value={{ scrollRef }}>
       <StarField />
-      <PostProcessing />
       <AdaptiveDpr pixelated />
       <AdaptiveEvents />
     </ScrollContext.Provider>
@@ -44,12 +42,15 @@ export function SceneCanvas() {
       <Canvas
         camera={{ position: [0, 0, 8], fov: 60 }}
         gl={{
-          antialias: true,
-          alpha: true,
+          antialias: false,
+          alpha: false,
           powerPreference: 'high-performance',
+          stencil: false,
+          depth: false,
         }}
-        dpr={[1, 2]}
-        style={{ background: 'transparent' }}
+        dpr={[1, 1.5]}
+        style={{ background: '#080808' }}
+        onCreated={({ gl }) => gl.setClearColor('#080808', 1)}
       >
         <Scene scrollRef={scrollRef} />
       </Canvas>

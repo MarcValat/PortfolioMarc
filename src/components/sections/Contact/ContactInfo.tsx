@@ -53,7 +53,7 @@ export function ContactInfo() {
               <Icon size={16} className="text-gold" />
             </div>
             <div>
-              <p className="text-text-primary/40 text-xs font-mono uppercase tracking-wider mb-0.5">
+              <p className="text-text-primary/90 text-xs font-mono uppercase tracking-wider mb-0.5">
                 {label}
               </p>
               {href ? (
@@ -61,12 +61,12 @@ export function ContactInfo() {
                   href={href}
                   target={href.startsWith('http') ? '_blank' : undefined}
                   rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="text-text-primary/80 text-sm hover:text-gold transition-colors"
+                  className="text-text-primary/95 text-sm hover:text-gold transition-colors"
                 >
                   {value}
                 </a>
               ) : (
-                <p className="text-text-primary/80 text-sm">{value}</p>
+                <p className="text-text-primary/95 text-sm">{value}</p>
               )}
             </div>
           </GlassCard>

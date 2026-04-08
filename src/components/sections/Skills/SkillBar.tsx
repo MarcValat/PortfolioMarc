@@ -38,7 +38,7 @@ export function SkillBar({ skill }: SkillBarProps) {
   return (
     <div ref={barRef} className="mb-4">
       <div className="flex justify-between items-center mb-1.5">
-        <span className="font-body text-sm text-text-primary/80">{skill.name}</span>
+        <span className="font-body text-sm text-text-primary/95">{skill.name}</span>
         <span className="font-mono text-xs text-gold/60">{skill.level ?? 75}%</span>
       </div>
       <div className="h-1 bg-glass-bg rounded-full overflow-hidden border border-glass-border">

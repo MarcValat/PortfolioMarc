@@ -27,20 +27,20 @@ export function EsmeCard() {
               <GradientText as="h3" className="font-heading text-2xl font-bold block mb-1">
                 {esme.school}
               </GradientText>
-              <p className="text-text-primary/60 text-sm">{esme.degree}</p>
+              <p className="text-text-primary/85 text-sm">{esme.degree}</p>
             </div>
           </div>
 
           <div className="flex flex-wrap gap-3 mb-5">
             <GoldBadge>{esme.field}</GoldBadge>
-            <div className="flex items-center gap-1.5 text-text-primary/40 text-sm">
+            <div className="flex items-center gap-1.5 text-text-primary/90 text-sm">
               <Calendar size={13} />
               <span>{esme.period}</span>
             </div>
           </div>
 
           {esme.description && (
-            <p className="font-body text-base text-text-primary/60 leading-relaxed">
+            <p className="font-body text-base text-text-primary/85 leading-relaxed">
               {esme.description}
             </p>
           )}
@@ -58,9 +58,9 @@ export function EsmeCard() {
           <div className="flex items-center justify-between flex-wrap gap-3">
             <div>
               <h3 className="font-heading font-semibold text-text-primary mb-0.5">{bac.school}</h3>
-              <p className="text-text-primary/50 text-sm">{bac.degree} — {bac.field}</p>
+              <p className="text-text-primary/75 text-sm">{bac.degree} — {bac.field}</p>
             </div>
-            <div className="flex items-center gap-1.5 text-text-primary/30 text-sm">
+            <div className="flex items-center gap-1.5 text-text-primary/85 text-sm">
               <Calendar size={13} />
               <span>{bac.period}</span>
             </div>

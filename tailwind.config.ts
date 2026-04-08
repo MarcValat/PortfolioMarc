@@ -10,7 +10,7 @@ export default {
         'gold':         '#C9A84C',
         'gold-light':   '#F0D080',
         'coral':        '#FF6B6B',
-        'text-primary': '#F5F0E8',
+        'text-primary': '#FFFFFF',
         'text-muted':   'rgba(245,240,232,0.5)',
         'glass-bg':     'rgba(255,255,255,0.07)',
         'glass-border': 'rgba(201,168,76,0.15)',

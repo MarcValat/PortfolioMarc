@@ -20,7 +20,7 @@ export function NavItem({ href, label, active, onClick }: NavItemProps) {
       }}
       className={cn(
         'relative text-sm font-heading font-medium transition-colors duration-200',
-        active ? 'text-gold' : 'text-text-primary/70 hover:text-text-primary'
+        active ? 'text-gold' : 'text-text-primary/90 hover:text-text-primary'
       )}
       whileHover={{ y: -1 }}
     >

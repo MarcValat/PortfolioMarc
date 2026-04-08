@@ -22,7 +22,7 @@ function Field({ label, id, multiline, rows = 4, className, ...props }: FieldPro
 
   return (
     <div>
-      <label htmlFor={id} className="block text-xs font-mono text-text-primary/40 uppercase tracking-widest mb-2">
+      <label htmlFor={id} className="block text-xs font-mono text-text-primary/90 uppercase tracking-widest mb-2">
         {label}
       </label>
       <motion.div
@@ -74,7 +74,7 @@ export function ContactForm() {
           >
             <CheckCircle size={48} className="text-gold" />
             <h3 className="font-heading text-xl font-bold text-text-primary">Message envoyé !</h3>
-            <p className="text-text-primary/50 text-sm">Je vous répondrai dans les meilleurs délais.</p>
+            <p className="text-text-primary/75 text-sm">Je vous répondrai dans les meilleurs délais.</p>
           </motion.div>
         ) : (
           <motion.form
