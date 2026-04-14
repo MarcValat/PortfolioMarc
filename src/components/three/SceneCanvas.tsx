@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { AdaptiveDpr, AdaptiveEvents } from '@react-three/drei'
+import { EffectComposer, Bloom, Vignette, Noise } from '@react-three/postprocessing'
 import { useLenis } from '@/hooks/useLenis'
 import { StarField } from './StarField'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
@@ -10,6 +11,11 @@ function Scene({ scrollRef }: { scrollRef: React.RefObject<number> }) {
   return (
     <ScrollContext.Provider value={{ scrollRef }}>
       <StarField />
+      <EffectComposer>
+        <Bloom luminanceThreshold={0.65} luminanceSmoothing={0.4} intensity={0.5} radius={0.6} />
+        <Noise opacity={0.035} />
+        <Vignette eskil={false} offset={0.15} darkness={0.55} />
+      </EffectComposer>
       <AdaptiveDpr pixelated />
       <AdaptiveEvents />
     </ScrollContext.Provider>
@@ -43,7 +49,6 @@ export function SceneCanvas() {
           alpha: false,
           powerPreference: 'high-performance',
           stencil: false,
-          depth: false,
         }}
         dpr={[1, 1.5]}
         style={{ background: '#080808' }}

@@ -9,7 +9,6 @@ import type { Project } from '@/types'
 
 interface ProjectCardProps {
   project: Project
-  index: number
 }
 
 const ICONS: Record<string, React.ReactNode> = {
@@ -17,7 +16,12 @@ const ICONS: Record<string, React.ReactNode> = {
   'Infrastructure Serveur Personnel': <Server size={20} className="text-gold" />,
 }
 
-export function ProjectCard({ project, index }: ProjectCardProps) {
+const item = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } },
+}
+
+export function ProjectCard({ project }: ProjectCardProps) {
   const ref = useRef<HTMLDivElement>(null)
   const prefersReduced = useReducedMotion()
 
@@ -39,12 +43,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.55, delay: index * 0.12, ease: 'easeOut' }}
-    >
+    <motion.div variants={item} className="h-full">
       <motion.div
         ref={ref}
         style={prefersReduced ? {} : { rotateX, rotateY, transformPerspective: 800 }}
