@@ -7,9 +7,15 @@ import { StarField } from './StarField'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { ScrollContext } from './ScrollContext'
 
-function Scene({ scrollRef }: { scrollRef: React.RefObject<number> }) {
+function Scene({
+  scrollRef,
+  limitRef,
+}: {
+  scrollRef: React.RefObject<number>
+  limitRef: React.RefObject<number>
+}) {
   return (
-    <ScrollContext.Provider value={{ scrollRef }}>
+    <ScrollContext.Provider value={{ scrollRef, limitRef }}>
       <StarField />
       <EffectComposer>
         <Bloom luminanceThreshold={0.65} luminanceSmoothing={0.4} intensity={0.5} radius={0.6} />
@@ -24,10 +30,12 @@ function Scene({ scrollRef }: { scrollRef: React.RefObject<number> }) {
 
 export function SceneCanvas() {
   const scrollRef = useRef<number>(0)
+  const limitRef = useRef<number>(1)
   const prefersReduced = useReducedMotion()
 
   useLenis((lenis) => {
     scrollRef.current = lenis.animatedScroll
+    limitRef.current = lenis.limit
   })
 
   if (prefersReduced) return null
@@ -54,7 +62,7 @@ export function SceneCanvas() {
         style={{ background: '#080808' }}
         onCreated={({ gl }) => gl.setClearColor('#080808', 1)}
       >
-        <Scene scrollRef={scrollRef} />
+        <Scene scrollRef={scrollRef} limitRef={limitRef} />
       </Canvas>
     </div>
   )
