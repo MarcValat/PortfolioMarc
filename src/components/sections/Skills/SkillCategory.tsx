@@ -8,14 +8,14 @@ interface SkillCategoryProps {
   index: number
 }
 
-export function SkillCategoryCard({ category, index }: SkillCategoryProps) {
+const item = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
+}
+
+export function SkillCategoryCard({ category }: Omit<SkillCategoryProps, 'index'>) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.5, delay: index * 0.08, ease: 'easeOut' }}
-    >
+    <motion.div variants={item}>
       <GlassCard className="p-6 h-full" hover>
         <h3 className="font-heading font-semibold text-text-primary mb-5 text-sm uppercase tracking-widest gold-text">
           {category.category}

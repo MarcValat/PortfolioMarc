@@ -1,6 +1,7 @@
 import { useFrame } from '@react-three/fiber'
-import { useRef } from 'react'
+import { useRef, useContext } from 'react'
 import * as THREE from 'three'
+import { ScrollContext } from './ScrollContext'
 const starConfig = { sizeFactor: 40, alpha: 1.0, twinkleAmp: 0.4, nebulaSize: 30, nebulaAlpha: 0.8 }
 
 // ── Shaders ────────────────────────────────────────────────────────────────
@@ -151,9 +152,16 @@ export function StarField() {
   const nebulaRef  = useRef<THREE.Points>(null)
   const starMatRef = useRef<THREE.ShaderMaterial>(null)
   const nebMatRef  = useRef<THREE.ShaderMaterial>(null)
+  const { scrollRef } = useContext(ScrollContext)
 
   useFrame((state) => {
     const t = state.clock.elapsedTime
+
+    // Camera flies forward into starfield as user scrolls
+    const maxScroll = document.body.scrollHeight - window.innerHeight
+    const scrollProgress = maxScroll > 0 ? Math.min(scrollRef.current / maxScroll, 1) : 0
+    const targetZ = 8 - scrollProgress * 4
+    state.camera.position.z += (targetZ - state.camera.position.z) * 0.05
 
     if (starMatRef.current) {
       starMatRef.current.uniforms.uTime.value       = t
