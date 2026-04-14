@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-import { createLenis } from '@/lib/lenis'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { SceneCanvas } from '@/components/three/SceneCanvas'
 import { ScrollProgress } from '@/components/ui/ScrollProgress'
@@ -14,10 +12,6 @@ import { Projects } from '@/components/sections/Projects/Projects'
 import { Contact } from '@/components/sections/Contact/Contact'
 
 export default function App() {
-  useEffect(() => {
-    createLenis()
-  }, [])
-
   return (
     <ErrorBoundary>
       <ScrollProgress />
