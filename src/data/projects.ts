@@ -5,6 +5,15 @@ export const PROJECTS: Project[] = [
     title: 'EduFlow',
     description:
       'Intranet complet pour école : gestion des étudiants, emploi du temps, présences, notes, projets, admissions, RH, documentation interne et JPO. Application full-stack avec authentification par rôles, stockage fichiers S3 et déploiement Docker.',
+    demoCredentials: {
+      logins: [
+        'superadmin@demo.colint.school',
+        'admin@demo.colint.school',
+        'coach@demo.colint.school',
+        'etudiant1@demo.colint.school',
+      ],
+      password: 'Demo1234!',
+    },
     tags: [
       'Next.js 15',
       'TypeScript',
@@ -15,7 +24,7 @@ export const PROJECTS: Project[] = [
       'MinIO',
       'Docker',
     ],
-    url: 'https://colint.marcallie.duckdns.org/', // À renseigner : URL instance de test
+    url: 'https://demo.colint.marcallie.duckdns.org/', // À renseigner : URL instance de test
     liveDemo: true,
     status: 'En développement (18/40 étapes)',
   },

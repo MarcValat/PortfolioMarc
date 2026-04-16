@@ -9,9 +9,9 @@ export const EXPERIENCES: Experience[] = [
     duration: '6 mois',
     description: [
       'Automatisation des tests IHM pour des équipements réseau critiques.',
-      'Génération automatique de documentation utilisateur à partir de captures d\'écran et de données structurées.',
+      "Génération automatique de documentation utilisateur à partir de captures d'écran et de données structurées.",
     ],
-    tags: ['Python', 'Automatisation', 'Réseaux', 'Tests IHM'],
+    tags: ['Java', 'TypeScript', 'Automatisation', 'Playwright', 'LaTeX', 'Réseaux', 'Tests IHM'],
   },
   {
     company: 'ProMealPlan',
@@ -20,22 +20,22 @@ export const EXPERIENCES: Experience[] = [
     period: '2024',
     duration: '4 mois',
     description: [
-      'Développement d\'un algorithme de tri et de recommandation de plans alimentaires.',
+      "Développement d'un algorithme de tri et de recommandation de plans alimentaires.",
       'Analyse de marché et communication de vulgarisation sur les données nutritionnelles.',
     ],
     tags: ['Algorithme', 'JavaScript', 'Analyse de marché'],
   },
   {
-    company: 'Thales — Abou Dabi / Dubaï',
+    company: 'Thales — Abu Dhabi / Dubaï',
     role: 'Stagiaire Cybersécurité',
-    location: 'Abou Dabi, Émirats Arabes Unis',
+    location: 'Abu Dhabi, Émirats Arabes Unis',
     period: '2021',
     duration: '3 mois',
     description: [
-      'Développement d\'un outil interne de communication sécurisée, type Microsoft Teams propriétaire.',
+      "Développement d'un outil interne de communication sécurisée, type Microsoft Teams propriétaire.",
       'Apprentissage des protocoles réseau et des enjeux de sécurité en environnement industriel.',
     ],
-    tags: ['Cybersécurité', 'Réseaux', 'C#', 'Développement logiciel'],
+    tags: ['Cybersécurité', 'Réseaux', 'VMs', 'Développement logiciel'],
   },
   {
     company: 'Cours particuliers',

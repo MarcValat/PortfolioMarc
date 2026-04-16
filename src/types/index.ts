@@ -1,3 +1,8 @@
+export interface DemoCredentials {
+  logins: string[]
+  password: string
+}
+
 export interface Project {
   title: string
   description: string
@@ -5,6 +10,7 @@ export interface Project {
   url: string | null
   liveDemo?: boolean
   status?: string
+  demoCredentials?: DemoCredentials
 }
 
 export interface Experience {

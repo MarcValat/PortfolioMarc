@@ -5,6 +5,7 @@ interface GoldButtonProps {
   children: React.ReactNode
   onClick?: () => void
   href?: string
+  target?: string
   variant?: 'primary' | 'outline'
   className?: string
   disabled?: boolean
@@ -15,6 +16,7 @@ export function GoldButton({
   children,
   onClick,
   href,
+  target,
   variant = 'primary',
   className,
   disabled,
@@ -38,7 +40,7 @@ export function GoldButton({
 
   if (href) {
     return (
-      <motion.a href={href} className={baseClasses} {...motionProps}>
+      <motion.a href={href} target={target} rel={target === '_blank' ? 'noopener noreferrer' : undefined} className={baseClasses} {...motionProps}>
         {children}
       </motion.a>
     )
