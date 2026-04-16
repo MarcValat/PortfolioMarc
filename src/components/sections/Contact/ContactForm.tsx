@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Send, CheckCircle } from 'lucide-react'
+import { Send, CheckCircle, AlertCircle } from 'lucide-react'
 import { GlassCard } from '@/components/ui/GlassCard'
 import { GoldButton } from '@/components/ui/GoldButton'
 import { cn } from '@/lib/cn'
+
+const WEB3FORMS_KEY = '004c3b17-4c6f-4897-a8da-ccc2008ce328'
 
 interface FieldProps extends React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
   label: string
@@ -53,19 +55,34 @@ function Field({ label, id, multiline, rows = 4, className, ...props }: FieldPro
   )
 }
 
-export function ContactForm() {
-  const [sent, setSent] = useState(false)
+type Status = 'idle' | 'loading' | 'success' | 'error'
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+export function ContactForm() {
+  const [status, setStatus] = useState<Status>('idle')
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    // Placeholder — connect to a form service (Resend, Formspree, etc.) when ready
-    setSent(true)
+    setStatus('loading')
+
+    const data = new FormData(e.currentTarget)
+    data.append('access_key', WEB3FORMS_KEY)
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data,
+      })
+      const json = await res.json()
+      setStatus(json.success ? 'success' : 'error')
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
     <GlassCard className="p-8">
       <AnimatePresence mode="wait">
-        {sent ? (
+        {status === 'success' ? (
           <motion.div
             key="success"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -85,20 +102,29 @@ export function ContactForm() {
             animate={{ opacity: 1 }}
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <Field id="name" label="Nom" placeholder="Jean Dupont" required />
-              <Field id="email" label="Email" type="email" placeholder="jean@exemple.com" required />
+              <Field id="name" name="name" label="Nom" placeholder="Jean Dupont" required />
+              <Field id="email" name="email" label="Email" type="email" placeholder="jean@exemple.com" required />
             </div>
-            <Field id="subject" label="Objet" placeholder="Opportunité / Stage / Question" required />
+            <Field id="subject" name="subject" label="Objet" placeholder="Opportunité / Stage / Question" required />
             <Field
               id="message"
+              name="message"
               label="Message"
               placeholder="Bonjour Marc, …"
               multiline
               rows={5}
               required
             />
-            <GoldButton type="submit" className="self-start">
-              Envoyer <Send size={14} />
+
+            {status === 'error' && (
+              <div className="flex items-center gap-2 text-coral text-sm">
+                <AlertCircle size={14} />
+                <span>Erreur lors de l'envoi. Réessayez ou contactez-moi directement.</span>
+              </div>
+            )}
+
+            <GoldButton type="submit" disabled={status === 'loading'} className="self-start">
+              {status === 'loading' ? 'Envoi…' : <>Envoyer <Send size={14} /></>}
             </GoldButton>
           </motion.form>
         )}
