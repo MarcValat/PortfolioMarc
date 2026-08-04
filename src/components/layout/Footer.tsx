@@ -7,11 +7,12 @@ export function Footer() {
       <div className="px-6 md:px-12 lg:px-24 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2 text-text-primary/90 text-sm">
           <MapPin size={14} />
-          <span>Deuil-la-Barre, 95170</span>
+          <span>Chalon-sur-Saône, 71100</span>
         </div>
 
         <p className="text-text-primary/85 text-xs font-mono">
           © 2025 Marc Valat — Ingénieur IA · Dev · DevOps
+          <span className="text-text-primary/40"> · v{__APP_VERSION__}</span>
         </p>
 
         <div className="flex items-center gap-4">

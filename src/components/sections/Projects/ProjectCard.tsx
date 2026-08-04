@@ -5,10 +5,12 @@ import { GlassCard } from '@/components/ui/GlassCard'
 import { GoldBadge } from '@/components/ui/GoldBadge'
 import { GoldButton } from '@/components/ui/GoldButton'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { cn } from '@/lib/cn'
 import type { Project } from '@/types'
 
 interface ProjectCardProps {
   project: Project
+  featured?: boolean
 }
 
 const ICONS: Record<string, React.ReactNode> = {
@@ -42,14 +44,26 @@ function CopyButton({ text }: { text: string }) {
   )
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+function LiveBadge() {
+  return (
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-1 text-xs font-mono text-emerald-300">
+      <span className="relative flex h-1.5 w-1.5">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+      </span>
+      Démo en ligne
+    </span>
+  )
+}
+
+export function ProjectCard({ project, featured = false }: ProjectCardProps) {
   const ref = useRef<HTMLDivElement>(null)
   const prefersReduced = useReducedMotion()
 
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
-  const rotateX = useSpring(useTransform(mouseY, [-100, 100], [5, -5]), { stiffness: 200, damping: 25 })
-  const rotateY = useSpring(useTransform(mouseX, [-100, 100], [-5, 5]), { stiffness: 200, damping: 25 })
+  const rotateX = useSpring(useTransform(mouseY, [-160, 160], [2, -2]), { stiffness: 200, damping: 28 })
+  const rotateY = useSpring(useTransform(mouseX, [-160, 160], [-2, 2]), { stiffness: 200, damping: 28 })
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
     if (!ref.current || prefersReduced) return
@@ -64,32 +78,49 @@ export function ProjectCard({ project }: ProjectCardProps) {
   }
 
   return (
-    <motion.div variants={item} className="h-full">
+    <motion.div variants={item} className={cn('h-full', featured && 'lg:col-span-2')}>
       <motion.div
         ref={ref}
-        style={prefersReduced ? {} : { rotateX, rotateY, transformPerspective: 800 }}
+        style={prefersReduced ? {} : { rotateX, rotateY, transformPerspective: 1400 }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         className="h-full"
       >
-        <GlassCard className="p-6 h-full flex flex-col gap-5" hover>
+        <GlassCard
+          className={cn('h-full flex flex-col gap-5', featured ? 'p-7 md:p-8' : 'p-6')}
+          hover
+          glow={featured && project.liveDemo}
+        >
           {/* Header */}
-          <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
-              {ICONS[project.title] ?? <Code2 size={18} className="text-gold" />}
+          <div className="flex items-start justify-between gap-3 flex-wrap">
+            <div className="flex items-start gap-3 min-w-0">
+              <div className="w-10 h-10 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
+                {ICONS[project.title] ?? <Code2 size={18} className="text-gold" />}
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3
+                  className={cn(
+                    'font-heading font-bold text-text-primary truncate',
+                    featured ? 'text-xl' : 'text-base'
+                  )}
+                >
+                  {project.title}
+                </h3>
+                {project.status && (
+                  <span className="text-xs font-mono text-gold/50">{project.status}</span>
+                )}
+              </div>
             </div>
-            <div className="flex-1 min-w-0">
-              <h3 className="font-heading font-bold text-text-primary text-base truncate">
-                {project.title}
-              </h3>
-              {project.status && (
-                <span className="text-xs font-mono text-gold/50">{project.status}</span>
-              )}
-            </div>
+            {project.liveDemo && <LiveBadge />}
           </div>
 
           {/* Description */}
-          <p className="font-body text-sm text-text-primary/85 leading-relaxed flex-1">
+          <p
+            className={cn(
+              'font-body text-text-primary/85 leading-relaxed flex-1',
+              featured ? 'text-[15px]' : 'text-sm'
+            )}
+          >
             {project.description}
           </p>
 
@@ -125,11 +156,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <GoldButton
               href={project.url}
               target="_blank"
-              variant="outline"
-              className="self-start text-xs px-4 py-2"
+              variant="primary"
+              className={cn('self-start shadow-gold-glow', featured ? 'text-sm px-5 py-2.5' : 'text-xs px-4 py-2')}
             >
-              <ExternalLink size={13} />
-              Voir la démo
+              <ExternalLink size={featured ? 15 : 13} />
+              Voir la démo en ligne
             </GoldButton>
           )}
         </GlassCard>

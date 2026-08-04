@@ -19,7 +19,7 @@ export function Skills() {
       </SectionTitle>
 
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
+        className="grid grid-cols-1 md:grid-cols-6 gap-6 md:[grid-auto-flow:dense]"
         variants={container}
         initial="hidden"
         whileInView="show"

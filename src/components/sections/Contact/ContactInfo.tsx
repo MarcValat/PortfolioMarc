@@ -26,7 +26,7 @@ const CONTACT_ITEMS: Array<{
   {
     icon: MapPin,
     label: 'Localisation',
-    value: 'Deuil-la-Barre, 95170',
+    value: 'Chalon-sur-Saône, 71100',
     href: null,
   },
   {

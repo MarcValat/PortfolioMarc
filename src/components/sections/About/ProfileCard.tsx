@@ -71,7 +71,7 @@ export function ProfileCard({ photoSrc }: ProfileCardProps) {
         <div className="flex flex-col gap-2 text-sm text-text-primary/75">
           <div className="flex items-center gap-2 justify-center">
             <MapPin size={13} className="text-gold/60" />
-            <span>Deuil-la-Barre, 95170</span>
+            <span>Chalon-sur-Saône, 71100</span>
           </div>
           <div className="flex items-center gap-2 justify-center">
             <Mail size={13} className="text-gold/60" />
