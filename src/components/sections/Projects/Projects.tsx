@@ -19,14 +19,14 @@ export function Projects() {
       </SectionTitle>
 
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl"
+        className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-5xl"
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: '-80px' }}
       >
         {PROJECTS.map((project) => (
-          <ProjectCard key={project.title} project={project} />
+          <ProjectCard key={project.title} project={project} featured={project.liveDemo} />
         ))}
       </motion.div>
     </SectionWrapper>

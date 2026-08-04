@@ -9,7 +9,7 @@ interface CurvedDividerProps {
 export function CurvedDivider({
   flip = false,
   className,
-  color = '#080808',
+  color = '#0A0908',
 }: CurvedDividerProps) {
   return (
     <div

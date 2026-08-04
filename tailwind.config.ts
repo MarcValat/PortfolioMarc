@@ -5,12 +5,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        'bg-primary':   '#080808',
-        'bg-secondary': '#111111',
+        'bg-primary':   '#0A0908',
+        'bg-secondary': '#14120E',
         'gold':         '#C9A84C',
         'gold-light':   '#F0D080',
         'coral':        '#FF6B6B',
-        'text-primary': '#FFFFFF',
+        'text-primary': '#F5F0E8',
         'text-muted':   'rgba(245,240,232,0.5)',
         'glass-bg':     'rgba(255,255,255,0.07)',
         'glass-border': 'rgba(201,168,76,0.15)',

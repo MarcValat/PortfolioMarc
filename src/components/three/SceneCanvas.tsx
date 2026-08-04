@@ -3,9 +3,11 @@ import { Canvas } from '@react-three/fiber'
 import { AdaptiveDpr, AdaptiveEvents } from '@react-three/drei'
 import { EffectComposer, Bloom, Vignette, Noise } from '@react-three/postprocessing'
 import { useLenis } from '@/hooks/useLenis'
-import { StarField } from './StarField'
+import { NetworkField } from './NetworkField'
+import { AmbientDust } from './AmbientDust'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { ScrollContext } from './ScrollContext'
+import { isLowPowerDevice } from './deviceTier'
 
 function Scene({
   scrollRef,
@@ -16,7 +18,8 @@ function Scene({
 }) {
   return (
     <ScrollContext.Provider value={{ scrollRef, limitRef }}>
-      <StarField />
+      <AmbientDust />
+      <NetworkField />
       <EffectComposer>
         <Bloom luminanceThreshold={0.65} luminanceSmoothing={0.4} intensity={0.5} radius={0.6} />
         <Noise opacity={0.035} />
@@ -58,9 +61,9 @@ export function SceneCanvas() {
           powerPreference: 'high-performance',
           stencil: false,
         }}
-        dpr={[1, 1.5]}
-        style={{ background: '#080808' }}
-        onCreated={({ gl }) => gl.setClearColor('#080808', 1)}
+        dpr={isLowPowerDevice ? 1 : [1, 1.5]}
+        style={{ background: '#0A0908' }}
+        onCreated={({ gl }) => gl.setClearColor('#0A0908', 1)}
       >
         <Scene scrollRef={scrollRef} limitRef={limitRef} />
       </Canvas>
