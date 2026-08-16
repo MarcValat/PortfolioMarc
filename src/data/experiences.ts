@@ -3,7 +3,7 @@ import type { Experience } from '@/types'
 export const EXPERIENCES: Experience[] = [
   {
     company: 'Thales Six GTS',
-    role: 'Stagiaire — Réseaux & Automatisation',
+    role: 'Stagiaire - Réseaux & Automatisation',
     location: 'Gennevilliers, France',
     period: '2025',
     duration: '6 mois',
@@ -15,7 +15,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     company: 'ProMealPlan',
-    role: 'Développeur Web — Stage',
+    role: 'Développeur Web - Stage',
     location: 'Remote',
     period: '2024',
     duration: '4 mois',
@@ -26,7 +26,7 @@ export const EXPERIENCES: Experience[] = [
     tags: ['Algorithme', 'JavaScript', 'Analyse de marché'],
   },
   {
-    company: 'Thales — Abu Dhabi / Dubaï',
+    company: 'Thales - Abu Dhabi / Dubaï',
     role: 'Stagiaire Cybersécurité',
     location: 'Abu Dhabi, Émirats Arabes Unis',
     period: '2021',
@@ -50,7 +50,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     company: 'T&E Woodbar',
-    role: 'CDI — Bar à jus',
+    role: 'CDI - Bar à jus',
     location: 'Île-de-France',
     period: '2019 – 2022',
     duration: '3 ans',

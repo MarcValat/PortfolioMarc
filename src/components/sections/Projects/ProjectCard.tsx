@@ -136,7 +136,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
             <div className="rounded-lg border border-gold/15 bg-gold/5 p-3">
               <div className="flex items-center gap-1.5 text-gold/70 text-xs font-mono mb-2.5">
                 <KeyRound size={11} />
-                <span>Comptes démo — mdp : </span>
+                <span>Comptes démo - mdp : </span>
                 <span className="text-gold font-semibold">{project.demoCredentials.password}</span>
                 <CopyButton text={project.demoCredentials.password} />
               </div>

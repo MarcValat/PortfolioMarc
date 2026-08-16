@@ -9,7 +9,7 @@ import App from './App.tsx'
 // Register useGSAP plugin globally
 gsap.registerPlugin(useGSAP)
 
-// Init Lenis before React mounts — ensures getLenis() is non-null in all useEffects
+// Init Lenis before React mounts - ensures getLenis() is non-null in all useEffects
 createLenis()
 
 createRoot(document.getElementById('root')!).render(

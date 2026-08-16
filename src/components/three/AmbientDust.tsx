@@ -5,7 +5,7 @@ import { rollColor } from './palette'
 import { scaleForDevice } from './deviceTier'
 
 // Sparse, distant, twinkling points that sit behind the network and fill the empty
-// black space between its nodes — the depth cue the old dense starfield gave for free.
+// black space between its nodes - the depth cue the old dense starfield gave for free.
 
 const dustVert = /* glsl */ `
   attribute float size;
@@ -77,7 +77,7 @@ export function AmbientDust() {
     const t = state.clock.elapsedTime
     if (matRef.current) matRef.current.uniforms.uTime.value = t
     if (pointsRef.current) {
-      // Slower, independent drift from the network group — sells depth via parallax.
+      // Slower, independent drift from the network group - sells depth via parallax.
       pointsRef.current.rotation.y = t * 0.004
       pointsRef.current.rotation.x = t * 0.0015
     }

@@ -18,7 +18,7 @@ export function TimelineItem({ experience, index, isLeft }: TimelineItemProps) {
         <div className="w-3 h-3 rounded-full bg-gold shadow-gold-glow border-2 border-bg-primary" />
       </div>
 
-      {/* Card — alternates left/right on desktop */}
+      {/* Card - alternates left/right on desktop */}
       <motion.div
         className="w-full md:w-[45%]"
         initial={{ opacity: 0, x: isLeft ? -30 : 30 }}

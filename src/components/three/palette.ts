@@ -7,7 +7,7 @@ export const CORAL: [number, number, number] = [1.0, 0.42, 0.42]
 export const AZURE: [number, number, number] = [0.4, 0.58, 0.98]
 export const VIOLET: [number, number, number] = [0.62, 0.42, 0.95]
 
-// Weighted roll shared by nodes, edges (inherited per-vertex) and packets —
+// Weighted roll shared by nodes, edges (inherited per-vertex) and packets -
 // gold stays the anchor, azure/violet/coral break the monochrome wash.
 export function rollColor(): [number, number, number] {
   const roll = Math.random()

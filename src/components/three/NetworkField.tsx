@@ -75,7 +75,7 @@ const lineVert = /* glsl */ `
     vSide = side;
     vAlpha = 0.34 + 0.32 * (0.5 + 0.5 * sin(uTime * 0.55 + phase));
 
-    // Position-along-line and charge timing are passed through as varyings — the pulse
+    // Position-along-line and charge timing are passed through as varyings - the pulse
     // itself is evaluated per-fragment (see fragment shader) so it stays a tight travelling
     // band instead of a value linearly interpolated between the two line endpoints.
     vLineT = aLineT;
@@ -111,7 +111,7 @@ const lineFrag = /* glsl */ `
     float edge = 1.0 - smoothstep(0.5, 1.0, abs(vSide));
     float core = 1.0 - smoothstep(0.0, 0.4, abs(vSide));
 
-    // Charge pulse, evaluated per-fragment against the interpolated line position —
+    // Charge pulse, evaluated per-fragment against the interpolated line position -
     // each edge rarely (its own random period/offset) sends a tight bright band A -> B,
     // eased in and out over the travel window so it never cuts off abruptly. Travel time is
     // a fixed duration in seconds, decoupled from the recurrence period, so tuning how often
@@ -133,7 +133,7 @@ const lineFrag = /* glsl */ `
   }
 `
 
-// ── Static geometry data (module-level — generated once, never during render) ─
+// ── Static geometry data (module-level - generated once, never during render) ─
 
 const NODE_COUNT = scaleForDevice(170, 85)
 const HUB_RATIO = 0.1
@@ -178,7 +178,7 @@ function buildNetworkData() {
     colors[i * 3 + 2] = rgb[2]
   }
 
-  // k-nearest-neighbour edges (small N — O(N^2) once at module load is trivial)
+  // k-nearest-neighbour edges (small N - O(N^2) once at module load is trivial)
   const edgeSet = new Set<string>()
   const edgeList: [number, number][] = []
 
@@ -206,7 +206,7 @@ function buildNetworkData() {
   }
 
   // Each edge becomes a 4-vertex screen-space quad (ribbon) instead of a 2-vertex GL_LINE,
-  // so it can carry its own width — thicker where it touches a hub, thin otherwise.
+  // so it can carry its own width - thicker where it touches a hub, thin otherwise.
   const edgeQuadPositions = new Float32Array(edgeList.length * 4 * 3)
   const edgeQuadOther = new Float32Array(edgeList.length * 4 * 3)
   const edgeQuadSide = new Float32Array(edgeList.length * 4)
@@ -224,7 +224,7 @@ function buildNetworkData() {
     const isHubEdge = hubs[a] === 1 || hubs[b] === 1
     const width = isHubEdge ? 1.1 + Math.random() * 0.7 : 0.4 + Math.random() * 0.55
     const phase = Math.random() * Math.PI * 2
-    // Long, staggered cycle per edge — most of the time idle, occasionally a charge travels through.
+    // Long, staggered cycle per edge - most of the time idle, occasionally a charge travels through.
     const chargePeriod = 18 + Math.random() * 28
     const chargePhase = Math.random()
     const base = idx * 4
@@ -261,7 +261,7 @@ function buildNetworkData() {
     edgeIndices[ib + 5] = base + 2
   })
 
-  // A handful of edges carry a travelling "packet" — sells the data-flow read.
+  // A handful of edges carry a travelling "packet" - sells the data-flow read.
   const packetCount = Math.min(PACKET_COUNT, edgeList.length)
   const packets: Packet[] = []
   const packetPositions = new Float32Array(packetCount * 3)
@@ -275,7 +275,7 @@ function buildNetworkData() {
     packetPositions[i * 3] = positions[ai * 3]
     packetPositions[i * 3 + 1] = positions[ai * 3 + 1]
     packetPositions[i * 3 + 2] = positions[ai * 3 + 2]
-    // Packet inherits the color of the node it departs from — same palette variety as the mesh.
+    // Packet inherits the color of the node it departs from - same palette variety as the mesh.
     packetColors[i * 3] = colors[ai * 3]
     packetColors[i * 3 + 1] = colors[ai * 3 + 1]
     packetColors[i * 3 + 2] = colors[ai * 3 + 2]

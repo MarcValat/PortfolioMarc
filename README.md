@@ -1,4 +1,4 @@
-# Portfolio — Marc Valat
+# Portfolio - Marc Valat
 
 Portfolio personnel de Marc Valat, ingénieur généraliste (IA, développement logiciel, réseaux, DevOps).
 

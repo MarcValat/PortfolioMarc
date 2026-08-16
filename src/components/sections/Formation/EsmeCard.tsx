@@ -11,7 +11,7 @@ export function EsmeCard() {
 
   return (
     <div className="flex flex-col gap-8 max-w-3xl">
-      {/* ESME — featured */}
+      {/* ESME - featured */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +58,7 @@ export function EsmeCard() {
           <div className="flex items-center justify-between flex-wrap gap-3">
             <div>
               <h3 className="font-heading font-semibold text-text-primary mb-0.5">{bac.school}</h3>
-              <p className="text-text-primary/75 text-sm">{bac.degree} — {bac.field}</p>
+              <p className="text-text-primary/75 text-sm">{bac.degree} - {bac.field}</p>
             </div>
             <div className="flex items-center gap-1.5 text-text-primary/85 text-sm">
               <Calendar size={13} />

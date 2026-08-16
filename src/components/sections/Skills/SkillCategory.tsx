@@ -14,7 +14,7 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } },
 }
 
-// Bento sizing driven by breadth of the category — the more skills, the more room it earns.
+// Bento sizing driven by breadth of the category - the more skills, the more room it earns.
 function spanForCount(n: number) {
   if (n >= 6) return 'md:col-span-4'
   if (n >= 4) return 'md:col-span-3'

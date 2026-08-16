@@ -11,7 +11,7 @@ export function Footer() {
         </div>
 
         <p className="text-text-primary/85 text-xs font-mono">
-          © 2025 Marc Valat — Ingénieur IA · Dev · DevOps
+          © 2025 Marc Valat - Ingénieur IA · Dev · DevOps
           <span className="text-text-primary/40"> · v{__APP_VERSION__}</span>
         </p>
 

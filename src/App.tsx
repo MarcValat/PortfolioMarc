@@ -13,7 +13,7 @@ import { Formation } from '@/components/sections/Formation/Formation'
 import { Projects } from '@/components/sections/Projects/Projects'
 import { Contact } from '@/components/sections/Contact/Contact'
 
-// Code-split: the three.js/R3F bundle is heavy (~300KB gzipped) and purely decorative —
+// Code-split: the three.js/R3F bundle is heavy (~300KB gzipped) and purely decorative -
 // load it after the critical content (Hero, nav) rather than blocking first paint on it.
 const SceneCanvas = lazy(() =>
   import('@/components/three/SceneCanvas').then((mod) => ({ default: mod.SceneCanvas }))
@@ -25,7 +25,7 @@ export default function App() {
   return (
     <ErrorBoundary>
       <ScrollProgress />
-      {/* Fixed 3D background — z-0, pointer-events-none */}
+      {/* Fixed 3D background - z-0, pointer-events-none */}
       {scene3DEnabled && (
         <ErrorBoundary fallback={null}>
           <Suspense fallback={null}>
@@ -35,7 +35,7 @@ export default function App() {
       )}
       <Scene3DToggle enabled={scene3DEnabled} onToggle={() => setScene3DEnabled((v) => !v)} />
 
-      {/* HTML content above canvas — no z-index to stay in same stacking context as canvas */}
+      {/* HTML content above canvas - no z-index to stay in same stacking context as canvas */}
       <div className="relative">
         <Navbar />
         <main>

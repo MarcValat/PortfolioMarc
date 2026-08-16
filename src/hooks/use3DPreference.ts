@@ -8,7 +8,7 @@ function readStoredPreference(): boolean {
   return stored === null ? true : stored === 'true'
 }
 
-// Manual opt-out for the 3D background — independent from prefers-reduced-motion,
+// Manual opt-out for the 3D background - independent from prefers-reduced-motion,
 // for visitors whose GPU/browser struggles with WebGL even without that OS setting.
 export function use3DPreference() {
   const [enabled, setEnabled] = useState(readStoredPreference)
