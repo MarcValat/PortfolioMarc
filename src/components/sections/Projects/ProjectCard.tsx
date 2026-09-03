@@ -1,9 +1,23 @@
 import { useRef, useState } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
-import { ExternalLink, Server, Code2, KeyRound, Copy, Check } from 'lucide-react'
+import {
+  ExternalLink,
+  Server,
+  Code2,
+  KeyRound,
+  Copy,
+  Check,
+  Music,
+  LayoutGrid,
+  Mic,
+  AudioLines,
+  Heart,
+  BookText,
+} from 'lucide-react'
 import { GlassCard } from '@/components/ui/GlassCard'
 import { GoldBadge } from '@/components/ui/GoldBadge'
 import { GoldButton } from '@/components/ui/GoldButton'
+import { GithubIcon } from '@/components/ui/GithubIcon'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { cn } from '@/lib/cn'
 import type { Project } from '@/types'
@@ -16,6 +30,12 @@ interface ProjectCardProps {
 const ICONS: Record<string, React.ReactNode> = {
   'EduFlow': <Code2 size={20} className="text-gold" />,
   'Infrastructure Serveur Personnel': <Server size={20} className="text-gold" />,
+  'Grans Culture': <Music size={20} className="text-gold" />,
+  'TaskMatrix': <LayoutGrid size={20} className="text-gold" />,
+  'Voice4Kids': <Mic size={20} className="text-gold" />,
+  'SyncAudio': <AudioLines size={20} className="text-gold" />,
+  'Site de Mariage': <Heart size={20} className="text-gold" />,
+  'Site vitrine - Autrice de roman': <BookText size={20} className="text-gold" />,
 }
 
 const item = {
@@ -44,14 +64,14 @@ function CopyButton({ text }: { text: string }) {
   )
 }
 
-function LiveBadge() {
+function LiveBadge({ label = 'Démo en ligne' }: { label?: string }) {
   return (
     <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-1 text-xs font-mono text-emerald-300">
       <span className="relative flex h-1.5 w-1.5">
         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
         <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
       </span>
-      Démo en ligne
+      {label}
     </span>
   )
 }
@@ -111,7 +131,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
                 )}
               </div>
             </div>
-            {project.liveDemo && <LiveBadge />}
+            {project.liveDemo && <LiveBadge label={project.liveLabel} />}
           </div>
 
           {/* Description */}
@@ -152,17 +172,32 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
           )}
 
           {/* CTA */}
-          {project.url && project.liveDemo && (
-            <GoldButton
-              href={project.url}
-              target="_blank"
-              variant="primary"
-              className={cn('self-start shadow-gold-glow', featured ? 'text-sm px-5 py-2.5' : 'text-xs px-4 py-2')}
-            >
-              <ExternalLink size={featured ? 15 : 13} />
-              Voir la démo en ligne
-            </GoldButton>
-          )}
+          {(project.url && project.liveDemo) || project.repoUrl ? (
+            <div className="flex flex-wrap items-center gap-2.5">
+              {project.url && project.liveDemo && (
+                <GoldButton
+                  href={project.url}
+                  target="_blank"
+                  variant="primary"
+                  className={cn('shadow-gold-glow', featured ? 'text-sm px-5 py-2.5' : 'text-xs px-4 py-2')}
+                >
+                  <ExternalLink size={featured ? 15 : 13} />
+                  {project.urlLabel ?? 'Voir la démo en ligne'}
+                </GoldButton>
+              )}
+              {project.repoUrl && (
+                <GoldButton
+                  href={project.repoUrl}
+                  target="_blank"
+                  variant="outline"
+                  className={cn(featured ? 'text-sm px-5 py-2.5' : 'text-xs px-4 py-2')}
+                >
+                  <GithubIcon size={featured ? 15 : 13} />
+                  Code sur GitHub
+                </GoldButton>
+              )}
+            </div>
+          ) : null}
         </GlassCard>
       </motion.div>
     </motion.div>

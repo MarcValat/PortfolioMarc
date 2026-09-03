@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin } from 'lucide-react'
 import { GithubIcon } from '@/components/ui/GithubIcon'
+import { LinkedinIcon } from '@/components/ui/LinkedinIcon'
 import { GlassCard } from '@/components/ui/GlassCard'
 
 type IconComponent = React.ComponentType<{ size?: number; className?: string }>
@@ -34,6 +35,12 @@ const CONTACT_ITEMS: Array<{
     label: 'GitHub',
     value: 'github.com/MarcValat',
     href: 'https://github.com/MarcValat',
+  },
+  {
+    icon: LinkedinIcon,
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/marc-valat',
+    href: 'https://www.linkedin.com/in/marc-valat/',
   },
 ]
 

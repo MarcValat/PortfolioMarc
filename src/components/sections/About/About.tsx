@@ -17,8 +17,7 @@ export function About() {
 
         {/* Right - card */}
         <div className="flex justify-center lg:justify-end">
-          {/* Pass photoSrc once the user provides the photo */}
-          <ProfileCard />
+          <ProfileCard photoSrc="/PhotoCV.png" />
         </div>
       </div>
     </SectionWrapper>

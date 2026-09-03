@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
-import { ArrowDown } from 'lucide-react'
+import { ArrowDown, FileDown } from 'lucide-react'
 import { GoldButton } from '@/components/ui/GoldButton'
 import { MagneticWrapper } from '@/components/ui/MagneticWrapper'
 import { GithubIcon } from '@/components/ui/GithubIcon'
+import { LinkedinIcon } from '@/components/ui/LinkedinIcon'
 
 export function HeroActions() {
   function scrollToContact() {
@@ -25,11 +26,33 @@ export function HeroActions() {
 
       <MagneticWrapper>
         <GoldButton
+          href="/CV-Marc-Valat-fr.pdf"
+          target="_blank"
+          download
+          variant="outline"
+        >
+          <FileDown size={16} />
+          Télécharger le CV
+        </GoldButton>
+      </MagneticWrapper>
+
+      <MagneticWrapper>
+        <GoldButton
           href="https://github.com/MarcValat"
           variant="outline"
         >
           <GithubIcon size={16} />
           GitHub
+        </GoldButton>
+      </MagneticWrapper>
+
+      <MagneticWrapper>
+        <GoldButton
+          href="https://www.linkedin.com/in/marc-valat/"
+          variant="outline"
+        >
+          <LinkedinIcon size={16} />
+          LinkedIn
         </GoldButton>
       </MagneticWrapper>
     </motion.div>
