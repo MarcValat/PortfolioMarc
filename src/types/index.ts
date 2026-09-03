@@ -11,6 +11,12 @@ export interface Project {
   liveDemo?: boolean
   status?: string
   demoCredentials?: DemoCredentials
+  /** Libellé du badge « en ligne » (défaut : « Démo en ligne »). */
+  liveLabel?: string
+  /** Libellé du bouton d'accès (défaut : « Voir la démo en ligne »). */
+  urlLabel?: string
+  /** Lien vers le dépôt GitHub public. */
+  repoUrl?: string
 }
 
 export interface Experience {

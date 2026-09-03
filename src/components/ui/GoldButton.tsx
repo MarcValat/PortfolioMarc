@@ -6,6 +6,7 @@ interface GoldButtonProps {
   onClick?: () => void
   href?: string
   target?: string
+  download?: boolean | string
   variant?: 'primary' | 'outline'
   className?: string
   disabled?: boolean
@@ -17,6 +18,7 @@ export function GoldButton({
   onClick,
   href,
   target,
+  download,
   variant = 'primary',
   className,
   disabled,
@@ -40,7 +42,14 @@ export function GoldButton({
 
   if (href) {
     return (
-      <motion.a href={href} target={target} rel={target === '_blank' ? 'noopener noreferrer' : undefined} className={baseClasses} {...motionProps}>
+      <motion.a
+        href={href}
+        target={target}
+        download={download}
+        rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+        className={baseClasses}
+        {...motionProps}
+      >
         {children}
       </motion.a>
     )

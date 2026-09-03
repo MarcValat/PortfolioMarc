@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { HeroAvailability } from './HeroAvailability'
 import { HeroHeadline } from './HeroHeadline'
 import { HeroTagline } from './HeroTagline'
 import { HeroActions } from './HeroActions'
@@ -48,6 +49,7 @@ export function Hero() {
       </motion.div>
 
       <div className="max-w-3xl" style={{ position: 'relative', zIndex: 1 }}>
+        <HeroAvailability />
         <HeroHeadline />
         <HeroTagline />
         <HeroActions />

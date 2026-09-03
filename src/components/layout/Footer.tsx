@@ -1,5 +1,6 @@
 import { Mail, MapPin } from 'lucide-react'
 import { GithubIcon } from '@/components/ui/GithubIcon'
+import { LinkedinIcon } from '@/components/ui/LinkedinIcon'
 
 export function Footer() {
   return (
@@ -31,6 +32,15 @@ export function Footer() {
             aria-label="GitHub"
           >
             <GithubIcon size={16} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/marc-valat/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-text-primary/90 hover:text-gold transition-colors"
+            aria-label="LinkedIn"
+          >
+            <LinkedinIcon size={16} />
           </a>
         </div>
       </div>

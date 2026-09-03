@@ -2,6 +2,21 @@ import type { Experience } from '@/types'
 
 export const EXPERIENCES: Experience[] = [
   {
+    company: 'Freelance',
+    role: 'Développeur logiciel & web',
+    location: 'Remote, France',
+    period: 'Depuis oct. 2025',
+    duration: 'En cours · ~1 an',
+    description: [
+      "Développement, déploiement (VPS OVH, CI/CD GitLab) et maintenance du site de l'association Grans Culture, pour la mairie de Grans.",
+      "Conception et réalisation de TaskMatrix, application mobile Flutter de gestion de tâches (matrice d'Eisenhower) avec back-end de synchronisation temps réel.",
+      "Développement de WidgetSalary, application mobile de suivi de rémunération avec widget d'accueil - terminée et fonctionnelle (non publiée).",
+      "Conception et développement d'un site vitrine pour une autrice de roman : présentation de l'univers et des ouvrages, responsive et optimisé pour le référencement (en cours).",
+      'Conception et développement de ce portfolio (React 19, Three.js, GSAP).',
+    ],
+    tags: ['Freelance', 'React', 'Next.js', 'Flutter', 'TypeScript', 'Three.js', 'GitLab CI/CD', 'Déploiement'],
+  },
+  {
     company: 'Thales Six GTS',
     role: 'Stagiaire - Réseaux & Automatisation',
     location: 'Gennevilliers, France',
