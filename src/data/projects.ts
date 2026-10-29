@@ -62,13 +62,27 @@ export const PROJECTS: Project[] = [
     status: 'En production',
   },
   {
-    title: "Site vitrine - Autrice de roman",
+    title: 'Suite Bobine',
     description:
-      "Site vitrine conçu en freelance pour une autrice de roman : présentation de l'autrice et de son univers, catalogue des ouvrages et actualité des parutions. Site responsive, léger et optimisé pour le référencement naturel.",
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'SEO', 'Responsive'],
+      "Suite de trois applications de bureau open source pour vidéothèque. Bobine Audio remet un doublage en phase avec sa vidéo en comparant musique et bruitages plutôt que dialogues ; Bobine Subs recale des sous-titres sur ceux déjà présents, d'une langue à l'autre, en comparant le rythme des répliques (y compris PGS/VobSub) ; Bobine Style applique un style de sous-titres uniforme, adapté à chaque résolution. Détection des décalages constants, dérives et sauts avec score de confiance, correction manuelle, traitement d'une saison entière en une passe et export MKV sans réencodage.",
+    tags: ['Tauri 2', 'Rust', 'React 19', 'TypeScript', 'Python', 'FastAPI', 'NumPy / SciPy', 'FFmpeg', 'DSP', 'Playwright'],
     url: null,
     liveDemo: false,
-    status: 'En conception & développement',
+    repoLinks: [
+      { label: 'Bobine Audio', url: 'https://github.com/MarcValat/BobineAudio' },
+      { label: 'Bobine Subs', url: 'https://github.com/MarcValat/BobineSubs' },
+      { label: 'Bobine Style', url: 'https://github.com/MarcValat/BobineStyle' },
+    ],
+    status: 'v2.0.0 - Windows & Linux',
+  },
+  {
+    title: 'Site de Joséphine A. Ribelli',
+    description:
+      "Site officiel d'une autrice de romans, conçu en freelance : présentation de l'autrice et de ses univers, catalogue des romans, actualités, espace presse et newsletter. Site statique ultra-rapide, contenu géré par l'autrice depuis une console d'administration, multilingue (français puis anglais) et optimisé pour le référencement.",
+    tags: ['Astro', 'TypeScript', 'Sanity', 'Cloudflare Workers', 'Brevo', 'SEO', 'i18n'],
+    url: null,
+    liveDemo: false,
+    status: 'En développement',
   },
   {
     title: 'TaskMatrix',
@@ -82,7 +96,7 @@ export const PROJECTS: Project[] = [
   {
     title: 'Voice4Kids',
     description:
-      "Application web qui convertit des histoires (PDF ou DOCX) en audio narré en français, avec voix preset ou clonage de sa propre voix. Synthèse vocale exécutée localement (Kyutai Pocket TTS), génération en file d'attente et streaming audio temps réel via Redis.",
+      "Application web qui convertit des histoires (PDF ou DOCX) en audio narré en français, avec voix preset ou clonage de sa propre voix. Trois moteurs de synthèse vocale exécutés localement (Kyutai Pocket TTS, Chatterbox, Qwen3-TTS) chargés à la demande, balises d'ambiance dans le texte, régénération phrase par phrase, montage audio et streaming temps réel via Redis.",
     tags: ['FastAPI', 'Python', 'React', 'Vite', 'Redis', 'arq', 'TTS', 'Docker'],
     url: null,
     liveDemo: false,
@@ -90,14 +104,13 @@ export const PROJECTS: Project[] = [
     status: 'v1.0',
   },
   {
-    title: 'SyncAudio',
+    title: 'MicroScope Control',
     description:
-      "Outil en ligne de commande qui calcule le décalage temporel entre des pistes audio de langues différentes (doublages) d'un même contenu. Analyse la composante percussive du spectrogramme (HPSS) et corrèle les enveloppes d'onset par FFT, avec score de confiance.",
-    tags: ['Python', 'NumPy', 'SciPy', 'FFmpeg', 'DSP', 'CLI'],
+      "Application de bureau de pilotage d'un microscope de laboratoire : caméra scientifique TUCSEN (SDK TUCAM), anneau LED RGBW sur Arduino et platines motorisées Thorlabs XY/Z. Moteur Python (API HTTP + WebSocket) avec aperçu caméra en direct, time-lapse, vidéo, et mode simulation complet reproduisant le matériel. Tests automatisés (moteur, interface, shell Rust) sur chaque pull request.",
+    tags: ['Tauri 2', 'Rust', 'React', 'TypeScript', 'Python', 'FastAPI', 'WebSocket', 'Arduino', 'Pilotage matériel'],
     url: null,
     liveDemo: false,
-    repoUrl: 'https://github.com/MarcValat/SyncAudio',
-    status: 'v1.0 - CLI',
+    status: 'Interface terminée - validation matériel à venir',
   },
   {
     title: 'Site de Mariage',

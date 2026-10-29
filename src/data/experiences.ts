@@ -11,10 +11,10 @@ export const EXPERIENCES: Experience[] = [
       "Développement, déploiement (VPS OVH, CI/CD GitLab) et maintenance du site de l'association Grans Culture, pour la mairie de Grans.",
       "Conception et réalisation de TaskMatrix, application mobile Flutter de gestion de tâches (matrice d'Eisenhower) avec back-end de synchronisation temps réel.",
       "Développement de WidgetSalary, application mobile de suivi de rémunération avec widget d'accueil - terminée et fonctionnelle (non publiée).",
-      "Conception et développement d'un site vitrine pour une autrice de roman : présentation de l'univers et des ouvrages, responsive et optimisé pour le référencement (en cours).",
+      "Conception et développement du site officiel de l'autrice Joséphine A. Ribelli (Astro, Sanity, Cloudflare) : univers et romans, actualités, espace presse et newsletter, contenu géré par l'autrice et optimisé pour le référencement (en cours).",
       'Conception et développement de ce portfolio (React 19, Three.js, GSAP).',
     ],
-    tags: ['Freelance', 'React', 'Next.js', 'Flutter', 'TypeScript', 'Three.js', 'GitLab CI/CD', 'Déploiement'],
+    tags: ['Freelance', 'React', 'Next.js', 'Astro', 'Flutter', 'TypeScript', 'Three.js', 'GitLab CI/CD', 'Déploiement'],
   },
   {
     company: 'Thales Six GTS',
