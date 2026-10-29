@@ -13,6 +13,7 @@ import {
   AudioLines,
   Heart,
   BookText,
+  Microscope,
 } from 'lucide-react'
 import { GlassCard } from '@/components/ui/GlassCard'
 import { GoldBadge } from '@/components/ui/GoldBadge'
@@ -33,9 +34,10 @@ const ICONS: Record<string, React.ReactNode> = {
   'Grans Culture': <Music size={20} className="text-gold" />,
   'TaskMatrix': <LayoutGrid size={20} className="text-gold" />,
   'Voice4Kids': <Mic size={20} className="text-gold" />,
-  'SyncAudio': <AudioLines size={20} className="text-gold" />,
+  'Suite Bobine': <AudioLines size={20} className="text-gold" />,
+  'MicroScope Control': <Microscope size={20} className="text-gold" />,
   'Site de Mariage': <Heart size={20} className="text-gold" />,
-  'Site vitrine - Autrice de roman': <BookText size={20} className="text-gold" />,
+  'Site de Joséphine A. Ribelli': <BookText size={20} className="text-gold" />,
 }
 
 const item = {
@@ -172,7 +174,7 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
           )}
 
           {/* CTA */}
-          {(project.url && project.liveDemo) || project.repoUrl ? (
+          {(project.url && project.liveDemo) || project.repoUrl || project.repoLinks ? (
             <div className="flex flex-wrap items-center gap-2.5">
               {project.url && project.liveDemo && (
                 <GoldButton
@@ -185,7 +187,19 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
                   {project.urlLabel ?? 'Voir la démo en ligne'}
                 </GoldButton>
               )}
-              {project.repoUrl && (
+              {project.repoLinks?.map((link) => (
+                <GoldButton
+                  key={link.url}
+                  href={link.url}
+                  target="_blank"
+                  variant="outline"
+                  className={cn(featured ? 'text-sm px-5 py-2.5' : 'text-xs px-4 py-2')}
+                >
+                  <GithubIcon size={featured ? 15 : 13} />
+                  {link.label}
+                </GoldButton>
+              ))}
+              {project.repoUrl && !project.repoLinks && (
                 <GoldButton
                   href={project.repoUrl}
                   target="_blank"

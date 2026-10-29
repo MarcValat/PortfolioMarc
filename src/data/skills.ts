@@ -35,6 +35,7 @@ export const SKILLS: SkillCategory[] = [
       { name: 'Tailwind CSS', level: 85 },
       { name: 'Flutter', level: 68 },
       { name: 'FastAPI', level: 72 },
+      { name: 'Tauri / Rust', level: 60 },
       { name: 'Prisma', level: 78 },
       { name: 'PostgreSQL', level: 72 },
       { name: 'Maven', level: 75 },

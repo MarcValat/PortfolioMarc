@@ -17,6 +17,13 @@ export interface Project {
   urlLabel?: string
   /** Lien vers le dépôt GitHub public. */
   repoUrl?: string
+  /** Plusieurs dépôts GitHub (suite d'outils), affichés à la place de repoUrl. */
+  repoLinks?: RepoLink[]
+}
+
+export interface RepoLink {
+  label: string
+  url: string
 }
 
 export interface Experience {
